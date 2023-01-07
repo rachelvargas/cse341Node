@@ -1,0 +1,26 @@
+{
+    "contact": {
+    "firstName": "Rachel",
+    "lastName": "Vargas",
+    "email": "angeles.vargas@ymail.com",
+    "favoriteColor": "orange",
+    "birthday": "05/05/1971"
+    },
+
+    "contact-2": {
+    "firstName": "Nicole",
+    "lastName": "Castro",
+    "email": "NicoleCastro833@gmail.com",
+    "favoriteColor": "Red",
+    "birthday": "29/10/1996"
+    },
+    "contact-3": {
+    "firstName": "Priscila",
+    "lastName": "Castro",
+    "email": "Priscilacastro834@gmail.com",
+    "favoriteColor": "Pink",
+    "birthday": "29/10/1996"
+    
+
+    }
+  }
