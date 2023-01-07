@@ -2,7 +2,7 @@ const MongoClient = require('mongodb').MongoClient;
 //const URI = 'mongodb+srv://rachelvargas:mongoRachel@cluster0.ypiaab5.mongodb.net/?retryWrites=true&w=majority';
 let db;
 
-const connectDB = (callback) => {
+const connectDb = (callback) => {
   if(db){
     console.log("database connected!");
     return callback(null, db);
@@ -26,5 +26,5 @@ const connectDB = (callback) => {
 }*/
 
 //module.exports =  {connectDB, getDb}
-module.exports =  {connectDB}
+module.exports =  {connectDb}
 
