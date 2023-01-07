@@ -1,6 +1,3 @@
-const dotenv = require('dotenv');
-dotenv.config();
-
 const MongoClient = require('mongodb').MongoClient;
 //const URI = 'mongodb+srv://rachelvargas:mongoRachel@cluster0.ypiaab5.mongodb.net/?retryWrites=true&w=majority';
 let db;
@@ -14,7 +11,7 @@ const connectDB = (callback) => {
     db = client;
     callback(null, db);
   })
-  .catch((err) => {
+  catch((err) => {
     callback(err)
   });
 };
