@@ -13,7 +13,7 @@ const getData = async(req, res, next) => {
 
 
 
-/*const getOne = async(req, res, next) => {
+const getOne = async(req, res, next) => {
     const contacId = new ObjectId(req.params.id);
     const result = await mongodb 
     .getDb()
@@ -23,7 +23,7 @@ const getData = async(req, res, next) => {
     result.toArray().then((lists) => {
         res.setHeader('Content Type', 'application/json');
     });
-};*/
+};
 
-module.exports = { getData };
-//module.exports = { getData, getOne };
+//module.exports = { getData };
+module.exports = { getData, getOne };

@@ -16,12 +16,14 @@ const connectDB = (callback) => {
     });
 };
 
-const getDb = () => {
+/*const getDb = () => {
         if (!db) {
           throw Error('Db not connected!');
         }
 
     return db;
-}
+}*/
 
-module.exports =  {connectDB, getDb}
+//module.exports =  {connectDB, getDb}
+module.exports =  {connectDB}
+
