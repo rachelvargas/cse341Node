@@ -1,3 +1,6 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 const MongoClient = require('mongodb').MongoClient;
 //const URI = 'mongodb+srv://rachelvargas:mongoRachel@cluster0.ypiaab5.mongodb.net/?retryWrites=true&w=majority';
 let db;
@@ -6,14 +9,14 @@ const connectDB = (callback) => {
     console.log("database connected!");
     return callback(null, db);
   }
-    MongoClient.connect(process.env.MONGO_URI)
-    .then((client) => {
-      db = client;
-      callback(null, db);
-    })
-    catch((err) => {
-      callback(err);
-    });
+  MongoClient.connect(process.env.MONGO_URI)
+  .then((client) => {
+    db = client;
+    callback(null, db);
+  })
+  .catch((err) => {
+    callback(err)
+  });
 };
 
 /*const getDb = () => {
