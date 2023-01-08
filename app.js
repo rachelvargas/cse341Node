@@ -4,7 +4,7 @@ const port = process.env.PORT || 8080;
 const mongodb = require('./db/connect');
 const bodyParser = require('body-parser');
 const contactRoutes = require('./routes');
-const MongoClient = require('mongodb').MongoClient;
+//const MongoClient = require('mongodb').MongoClient;
 
 //conDB.connectDB();
 app.use(bodyParser.json());
@@ -20,8 +20,8 @@ mongodb.connectDb((err, mongodb) => {
     console.log(err);
   } else{
     app.listen(port);
-    console.log(`Connect to DB and listening on ${port}`);
+    console.log(`Connected to DB and listening on ${port}`);
   }
 });
 
-app.listen(port, () => console.log("Running"));
+//app.listen(port, () => console.log("Running"));
