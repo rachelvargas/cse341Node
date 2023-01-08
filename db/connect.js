@@ -7,7 +7,7 @@ const connectDb = (callback) => {
     console.log("database connected!");
     return callback(null, db);
   }
-  MongoClient.connect(process.env.MONGO_URI)
+  MongoClient.connect(process.env.MONGODB_URI)
   .then((client) => {
     db = client;
     callback(null, db);
@@ -22,8 +22,11 @@ const getDb = () => {
     throw Error('Db not connected!');
   }
   return db;
-}
+};
 
 //module.exports =  {connectDB, getDb}
-module.exports =  {connectDb, getDb}
+module.exports =  {
+  connectDb, 
+  getDb,
+};
 
