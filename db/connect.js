@@ -30,6 +30,6 @@ const getDb = () => {
 //module.exports =  {connectDB, getDb}
 module.exports =  {
   connectDb, 
-  getDb,
+  getDb
 };
 
