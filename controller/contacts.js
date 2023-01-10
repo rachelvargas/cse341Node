@@ -21,7 +21,7 @@ const getOne = async(req, res, next) => {
     .collection('contacts')
     .find({_id: contactId});
     result.toArray().then((lists) => {
-        res.setHeader('Content Type', 'application/json');
+        res.setHeader('Content-Type', 'application/json');
         res.status(200).json(lists[0]);
         console.log(lists);
     });
