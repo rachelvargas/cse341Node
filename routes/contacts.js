@@ -6,4 +6,6 @@ router.get('/', contactController.getData);
 
 router.get('/:id', contactController.getOne);
 
+//router.get('/', contactController.getNewContact);
+
 module.exports = router;
