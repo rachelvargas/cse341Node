@@ -29,27 +29,28 @@ const getOne = async(req, res, next) => {
     });
 };
 
-/*const getNewContact = async(req, res, next) => {
+const newContact = async(req, res) => {
   const contact4 = {
-    firstName: "Kimberly",
-    lastName: "Oldroyd",
-    email: "kimberly.oldroyd@gmail.com",
-    favoriteColor: "White",
-    birthday: 7/14/1971
-  };
-  const response = await mongodb
-  .getDb()
-  .db()
-  .collection('contacts')
-  .insertOne(contact4);
-  res.setHeader('Content-Type', 'application/json');
-  res.status(201).json(response);
-  console.log(response);
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    favoriteColor: req.body.favoriteColor,
+    birthday: req.body.birthday
+  }; 
 
-}*/
+  
+const response = await mongodb
+.getDb()
+.db()
+.collection('contacts')
+.insertOne(contact4);
+res.setHeader('Content-Type', 'application/json');
+res.status(201).json(response);
+console.log(response);
 
-//module.exports = { getData };
-module.exports = { getData, getOne };
+}
+
+module.exports = { getData, getOne, newContact }
 
 /**const createContact = async (req, res) => {
   const contact = {
@@ -67,41 +68,98 @@ module.exports = { getData, getOne };
   }
 }; */
 
+/*const updateContact = async(req, res) => {
+  const contactId = new ObjectId(req.params.id);
+  const response = await mongodb
+  .getDb()
+  .db()
+  .collection('contacts')
+  .replaceOne({_id: contactId}, contact4);
+  res.setHeader('Content-Type', 'application/json');
+  //res.status(204).json(response);
+  console.log(response);
+  if (response.modifiedCount > 0) {
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'Error: The contact could not be update.');
+  }
+};*/
 
-/**Create a POST route to create a new contact. 
- * -All fields are required.
- * -Return the new contact id in the response body. */
+/*const deleteContact = async(req, res) => {
+  const response = await mongodb
+  .getDb()
+  .db()
+  .collection('contacts')
+  //.deletetOne(contact4);
+  .deleteOne({ "firstName":"Rachel"});
+  res.setHeader('Content-Type', 'application/json');
+  res.status(201).json(response);
+  console.log(response);
 
-// addUser API to a new user in the database
-/*var express = require('express');
-var app = express();
-var fs = require("fs");*/
+};*/
 
-/*var user = {
-    "user4" : {
-       "name" : "mohit",
-       "password" : "password4",
-       "profession" : "teacher",
-       "id": 4
-    }
- }
- 
- app.post('/addUser', function (req, res) {
-    // First read existing users.
-    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
-       data = JSON.parse( data );
-       data["user4"] = user["user4"];
-       console.log( data );
-       res.end( JSON.stringify(data));
-    });
- })
- 
- var server = app.listen(8081, function () {
-    var host = server.address().address
-    var port = server.address().port
-    console.log("Example app listening at http://%s:%s", host, port)
- })*/
 
- /**access defined API using URL: http://127.0.0.1:8081/addUser and HTTP Method : 
-  * POST on local machine using any REST client. */
+
+//module.exports = { getData };
+
+  //updateContact, deleteContact };
+
+
+
+
+/**const deleteContact = async (req, res) => {
+  const userId = new ObjectId(req.params.id);
+  const response = await mongodb.getDb().db().collection('contacts').remove({ _id: userId }, true);
+  console.log(response);
+  if (response.deletedCount > 0) {
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while deleting the contact.');
+  }
+}; */
+
+
+/**constMongoClient=require('mongodb');
+ * // Server runningconsturl='mongodb://localhost:27017/';
+ * // Database nameconstdatabasename="cse341";
+ * MongoClient.connect(url).then((client) =>{
+ * // Connecting to the databaseconstconnect=client.db(databasename);
+ * // Database collectionconstcollection=connect.collection("contacts");
+ * Once the connection is successful, we proceedto delete the document.
+ * If we want to delete only one record, we use the deletOne() methodin this matter 
+ * collection.deleteOne({ "firstName":"Rachel"});console.log("Deletion Successful");
+ * })
+ * .catch((err) =>{
+ * // If error occurred show the erro */
+/**collection.deleteOne({ "firstName":"Rachel"});
+ * console.log("Deletion Successful");
+ * })
+ * .catch((err) =>{
+ * // If error occurred show the error message
+ */
+
+
+/** Create a PUT route to update a contact.*/
+/**const updateContact = async (req, res) => {
+  const userId = new ObjectId(req.params.id);
+  // be aware of updateOne if you only want to update specific fields
+  const contact = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    favoriteColor: req.body.favoriteColor,
+    birthday: req.body.birthday
+  };
+  const response = await mongodb
+    .getDb()
+    .db()
+    .collection('contacts')
+    .replaceOne({ _id: userId }, contact);
+  console.log(response);
+  if (response.modifiedCount > 0) {
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while updating the contact.');
+  }
+}; */
 
