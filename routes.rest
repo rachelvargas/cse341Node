@@ -14,4 +14,7 @@ GET http://localhost:8080/contacts/63bdee9f0e4544cbeab7dc73
 
 //Deply - Heroku
 
+###
+GET https://cse341-contacts-rachel-2.herokuapp.com/
+
 //Render
