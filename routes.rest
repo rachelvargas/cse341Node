@@ -26,11 +26,13 @@ POST http://localhost:8080/contacts
 
 //PUT - Update a contact
 ###
-PUT  http://localhost:8080/contacts/63bf45b2af3d65aff957e524
+PUT  http://localhost:8080/contacts/63bf5d3a9354e6a94cbef92d
+
+
 
 ###
 //DELETE contact 
-DELETE http://localhost:8080/contacts/63bf45b2af3d65aff957e524      
+DELETE http://localhost:8080/contacts/63bf5d3a9354e6a94cbef92d    
 
 
 

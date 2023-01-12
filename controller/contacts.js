@@ -47,11 +47,11 @@ const newContact = async(req, res) => {
   .insertOne(contact);
   res.setHeader('Content-Type', 'application/json');
   if (response.acknowledged) {
-  res.status(201).json(response);
-  console.log(response);
-} else {
-  res.status(500).json(response.error || 'Error: The contact could not be update.');
-}
+    res.status(201).json(response);
+    console.log(response);
+  } else {
+    res.status(500).json(response.error || 'Error: The contact could not be update.');
+  }
 };
 
 const updateContact = async(req, res) => {
@@ -70,41 +70,29 @@ const response = await mongodb
 .collection('contacts')
 .replaceOne({_id: contactId}, contact);
 res.setHeader('Content-Type', 'application/json');
-//res.status(204).json(response);
-console.log(response);
 if (response.modifiedCount > 0) {
   res.status(204).send();
+  console.log(response);
+
 } else {
   res.status(500).json(response.error || 'Error: The contact could not be update.');
 }
 };
-
 const deleteContact = async(req, res) => {
   const contactId = new ObjectId(req.params.id);
   const response = await mongodb 
   .getDb()
   .db()
   .collection('contacts')
-  .deleteOne({_id: contactId}); 
-  res.setHeader('Content-Type', 'application/json');
-  //res.status(204).json(response);
-  console.log(response);
+  .deleteOne({_id: contactId}, true); 
+  res.setHeader('Content-Type', 'application/json');  
   if (response.modifiedCount > 0) {
     res.status(200).send();
+    console.log(response);
+
   } else {
-    res.status(500).json(response.error || 'Error: The contact could not be delete.');
+    res.status(500).json(response.error || 'Error: The contact could not be deleted.');
   }
-  };
+};
 
 module.exports = { getData, getOne, newContact, updateContact, deleteContact}
-
-/**const deleteContact = async (req, res) => {
-  const userId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db().collection('contacts').remove({ _id: userId }, true);
-  console.log(response);
-  if (response.deletedCount > 0) {
-    res.status(204).send();
-  } else {
-    res.status(500).json(response.error || 'Some error occurred while deleting the contact.');
-  }
-}; */
