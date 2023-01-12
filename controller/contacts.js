@@ -5,7 +5,7 @@ const ObjectId = require('mongodb').ObjectId;
 getData = async(req, res, next) => {
   const result = await mongodb
   .getDb()
-  .db()
+  .db("test")
   .collection('contacts')
   .find();
   result.toArray().then((lists) => {
@@ -19,7 +19,7 @@ const getOne = async(req, res, next) => {
     const contactId = new ObjectId(req.params.id);
     const result = await mongodb 
     .getDb()
-    .db()
+    .db("test")
     .collection('contacts')
     .find({_id: contactId});
     result.toArray().then((lists) => {
@@ -42,7 +42,7 @@ const newContact = async(req, res) => {
 };
   const response = await mongodb
   .getDb()
-  .db()
+  .db("test")
   .collection('contacts')
   .insertOne(contact);
   res.setHeader('Content-Type', 'application/json');
@@ -66,7 +66,7 @@ const updateContact = async(req, res) => {
 };
 const response = await mongodb
 .getDb()
-.db()
+.db("test")
 .collection('contacts')
 .replaceOne({_id: contactId}, contact);
 res.setHeader('Content-Type', 'application/json');
@@ -82,7 +82,7 @@ const deleteContact = async(req, res) => {
   const contactId = new ObjectId(req.params.id);
   const response = await mongodb 
   .getDb()
-  .db()
+  .db("test")
   .collection('contacts')
   .deleteOne({_id: contactId}, true); 
   res.setHeader('Content-Type', 'application/json');  
