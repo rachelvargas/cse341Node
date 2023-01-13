@@ -4,9 +4,16 @@ const port = process.env.PORT || 8080;
 const mongodb = require('./db/connect');
 const bodyParser = require('body-parser');
 const contactRoutes = require('./routes');
+const cors = require('cors');
 //const MongoClient = require('mongodb').MongoClient;
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
+
 //conDB.connectDB();
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+app.use(cors())
 app.use(bodyParser.json())
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
