@@ -7,7 +7,7 @@ router.use(
     '/',
     (docData = (req, res) => {
       let docData = {
-        documentationURL: 'https://nathanbirch.github.io/nathan-byui-api-docs',
+        documentationURL: 'http://localhost:8080/api-docs',
       };
       res.send(docData);
     })
