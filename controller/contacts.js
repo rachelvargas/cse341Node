@@ -32,14 +32,14 @@ const getOne = async(req, res, next) => {
 const newContact = async(req, res) => {
   const contact = 
   {
-    
-    firstName: "Kimberly",
-    lastName: "Oldroyd",
-    email: "kimberly.oldroyd@gmail.com",
-    favoriteColor: "White",
-    birthday: "7/14/1971"
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    favoriteColor: req.body.favoriteColor,
+    birthday: req.body.birthday
+
+  };
   
-};
   const response = await mongodb
   .getDb()
   .db("test")
@@ -56,14 +56,16 @@ const newContact = async(req, res) => {
 
 const updateContact = async(req, res) => {
   const contactId = new ObjectId(req.params.id);
-  const contact = 
-  {    
-    firstName: "Kim",
-    lastName: "Oldroyd",
-    email: "kimberly.oldroyd@gmail.com",
-    favoriteColor: "White",
-    birthday: "7/14/1971"  
-};
+  const contact =
+  {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    favoriteColor: req.body.favoriteColor,
+    birthday: req.body.birthday
+
+  };
+  
 const response = await mongodb
 .getDb()
 .db("test")
