@@ -5,11 +5,24 @@ GET http://localhost:8080/contacts
 
 //getting only one contact by their id
 ###
+<<<<<<< HEAD
 GET http://localhost:8080/contacts/63c1d7f2410251587fc0f4ed
+=======
+GET http://localhost:8080/contacts/63c1d7f2410251587fc0f4ed HTTP/1.1
+>>>>>>> 166c6fd39c494aab091d9e69e580800f236a27b1
 ### 
 GET http://localhost:8080/contacts/63c1d7f2410251587fc0f4ee
 ### 
 GET http://localhost:8080/contacts/63c1d7f2410251587fc0f4ef
+<<<<<<< HEAD
+=======
+
+
+//Render
+###
+GET https://cse341-api-documentation.onrender.com/contacts
+
+>>>>>>> 166c6fd39c494aab091d9e69e580800f236a27b1
 
 //POST - New contact
 ###

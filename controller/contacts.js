@@ -16,17 +16,17 @@ getData = async(req, res, next) => {
 };
 
 const getOne = async(req, res, next) => {
-    const contactId = new ObjectId(req.params.id);
-    const result = await mongodb 
-    .getDb()
-    .db("test")
-    .collection('contacts')
-    .find({_id: contactId});
-    result.toArray().then((lists) => {
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(lists[0]);
-        console.log(lists);
-    });
+  const contactId = new ObjectId(req.params.id);
+  const result = await mongodb 
+  .getDb()
+  .db("test")
+  .collection('contacts')
+  .find({_id: contactId});
+  result.toArray().then((lists) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).json(lists[0]);
+    console.log(lists);
+});
 };
 
 const newContact = async(req, res) => {
@@ -40,6 +40,7 @@ const newContact = async(req, res) => {
 
   };
   
+<<<<<<< HEAD
   const response = await mongodb
   .getDb()
   .db("test")
@@ -52,6 +53,22 @@ const newContact = async(req, res) => {
   } else {
     res.status(500).json(response.error || 'Error: The contact could not be update.');
   }
+=======
+};
+
+const response = await mongodb
+.getDb()
+.db("test")
+.collection('contacts')
+.insertOne(contact);
+res.setHeader('Content-Type', 'application/json');
+if (response.acknowledged) {
+  res.status(201).json(response);
+  console.log(response);
+} else {
+  res.status(500).json(response.error || 'Error: The contact could not be update.');
+}
+>>>>>>> 166c6fd39c494aab091d9e69e580800f236a27b1
 };
 
 const updateContact = async(req, res) => {
@@ -86,15 +103,15 @@ const deleteContact = async(req, res) => {
   .getDb()
   .db("test")
   .collection('contacts')
-  .deleteOne({_id: contactId}, true); 
-  res.setHeader('Content-Type', 'application/json');  
+  .deleteOne({_id: contactId}, true);
+  res.setHeader('Content-Type', 'application/json');
   if (response.modifiedCount > 0) {
     res.status(200).send();
     console.log(response);
-
+  
   } else {
     res.status(500).json(response.error || 'Error: The contact could not be deleted.');
   }
 };
 
-module.exports = { getData, getOne, newContact, updateContact, deleteContact}
+module.exports = { getData, getOne, newContact, updateContact, deleteContact }
